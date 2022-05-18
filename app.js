@@ -5,6 +5,7 @@ require('dotenv').config();
 require('express-async-errors');
 
 const morgan = require('morgan');
+const cookieParser = require('cookie-parser');
 
 //Connect db
 const DBConnection = require('./db/connect');
@@ -18,8 +19,14 @@ const errorHandlerMiddleware = require('./middleware/error-handler');
 
 app.use(morgan('tiny'));
 app.use(express.json());
+app.use(cookieParser(process.env.JWT_SECRET));
 
+app.get('/api/v1', (req, res) => {
+    console.log(req.cookies);
+    res.send('api/v1 route');
+});
 app.get('/', (req, res) => {
+    console.log(req.cookies);
     res.send('Hello');
 });
 
