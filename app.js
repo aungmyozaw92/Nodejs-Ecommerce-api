@@ -22,7 +22,7 @@ app.use(express.json());
 app.use(cookieParser(process.env.JWT_SECRET));
 
 app.get('/api/v1', (req, res) => {
-    console.log(req.cookies);
+    console.log(req.signedCookies);
     res.send('api/v1 route');
 });
 app.get('/', (req, res) => {
