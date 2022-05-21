@@ -6,7 +6,6 @@ const authUser = async (req, res, next) => {
     if(!token){
        throw new customError.UnauthenticatedError('Unauthenticated');
     }
-    console.log(token);
     try {
         const { name, userId, role } = isValidToken({ token });
         req.user = { name: name, userId: userId, role: role};

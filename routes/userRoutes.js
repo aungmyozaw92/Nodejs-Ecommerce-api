@@ -12,9 +12,9 @@ const {
 
 router.route('/').get(authUser, authorizePermissions('admin'), getUsers);
 
-router.route('/profile').get(getProfile);
-router.route('/update').patch(update);
-router.route('/updatePassword').patch(updatePassword);
+router.route('/profile').get(authUser, getProfile);
+router.route('/update').patch(authUser, update);
+router.route('/updatePassword').patch(authUser, updatePassword);
 
 router.route('/:id').get(authUser, getUser);
 
