@@ -10,7 +10,8 @@ const index = async (req, res) => {
 
 const show = async (req, res) => {
     const { id: productId } = req.params;
-    const product = await Product.findOne({ _id: productId});
+    const product = await Product.findOne({ _id: productId})
+                                 .populate('reviews');
     if (!product) {
         throw new CustomError.NotFoundError(`No product with id ${productId}`);
     }
@@ -67,6 +68,7 @@ const upload = async (req, res) => {
   await image.mv(imagePath);
   res.status(StatusCodes.OK).json({ image: `/uploads/${image.name}` });
 };
+
 
 module.exports = {
     index,

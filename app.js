@@ -15,6 +15,7 @@ const DBConnection = require('./db/connect');
 const authRoute = require('./routes/authRoutes');
 const userRoute = require('./routes/userRoutes');
 const productRoute = require('./routes/productRoutes');
+const reviewRoute = require('./routes/reviewRoutes');
 
 //middleware 
 const notFoundMiddleware = require('./middleware/not-found');
@@ -38,6 +39,7 @@ app.get('/', (req, res) => {
 app.use('/api/v1/auth', authRoute);
 app.use('/api/v1/users', userRoute);
 app.use('/api/v1/products', productRoute);
+app.use('/api/v1/reviews', reviewRoute);
 
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
