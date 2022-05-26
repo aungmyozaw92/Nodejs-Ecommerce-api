@@ -1,12 +1,13 @@
 {
-  "name": "06-jobs-api",
+  "name": "ecom-api",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
-  "author": "",
+  "author": "Aung Myo Zaw",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -24,6 +25,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.0.8",
     "morgan": "^1.10.0",
+    "stripe": "^9.2.0",
     "validator": "^13.6.0",
     "xss-clean": "^0.1.1"
   },
@@ -31,6 +33,6 @@
     "nodemon": "^2.0.9"
   },
   "engines": {
-    "node": "14.x"
+    "node": "17.x"
   }
 }
